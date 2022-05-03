@@ -43,7 +43,9 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: mainColor,
         appBar: AppBar(
-          title: const Text("Who's It?"),
+          title: const Center(
+            child: Text("Who's It?"),
+          ),
           backgroundColor: mainColor,
         ),
         body: Center(
