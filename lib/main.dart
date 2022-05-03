@@ -27,6 +27,18 @@ class _MyAppState extends State<MyApp> {
   }
 
   Widget imageButton(int diceNumber) {
+    return Expanded(
+      child: TextButton(
+        onPressed: () {
+          changeDiceFace();
+        },
+        child: Image.asset("images/dice$diceNumber.png"),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: mainColor,
@@ -34,27 +46,16 @@ class _MyAppState extends State<MyApp> {
           title: const Text("Who's It?"),
           backgroundColor: mainColor,
         ),
-        body: Expanded(
-          child: TextButton(
-            onPressed: () {
-              changeDiceFace();
-            },
-            child: Image.asset("images/dice$diceNumber.png"),
+        body: Center(
+          child: Row(
+            children: [
+              imageButton(leftDiceNumber),
+              imageButton(rightDiceNumber),
+            ],
           ),
         ),
       ),
     );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Row(
-        children: [
-          imageButton(leftDiceNumber),
-          imageButton(rightDiceNumber),
-        ],
-      ),
-    );
+    ;
   }
 }
